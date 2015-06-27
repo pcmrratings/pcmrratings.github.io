@@ -51,9 +51,15 @@ $(document).ready(function() {
             var section = id.substring(0, 2);
             var weight = parseInt(id.substring(4, 5));
             var score = parseInt(id.substring(6));
-
             points += (weight * score);
         });
+
+        /*
+        if ($('input:radio[name=srv]').prop("checked") == false)
+        {
+            points += 20;
+        }
+        */
 
         $('span.score').text(points);
     }

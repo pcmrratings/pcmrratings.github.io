@@ -28,14 +28,19 @@ input[type=radio] {
     margin-left: -222px;
 }
 
+.hoverbox {
+    line-height: 1em;
+    overflow-x: visible;
+}
+
 .hoverbox.child {
     display: none;
 }
 
 .hoverbox.parent:hover > .hoverbox.child {
     display: block;
-    line-height: 1em;
-    overflow-x: visible;
 }
+
+
 
 
