@@ -25,7 +25,7 @@ $(document).ready(function() {
     var points = 0;
     var ratings = [
         "Peasantry",
-        "Compromising",
+        "Compromised",
         "Mediocre",
         "Righteous",
         "Glorious"
