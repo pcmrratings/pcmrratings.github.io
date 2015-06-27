@@ -43,8 +43,9 @@ $(document).ready(function() {
     }
 
     $.fn.Compute = function() {
-        points = 0;
         var selected = $("input:radio:checked");
+        var opacity = 0;
+        points = 0;
 
         $(selected).each(function(index) {
             var id = $(this).attr("id");
@@ -52,14 +53,10 @@ $(document).ready(function() {
             var weight = parseInt(id.substring(4, 5));
             var score = parseInt(id.substring(6));
             points += (weight * score);
+            opacity += 0.1;
+            $('img.rating')
+                .css({'opacity': opacity});
         });
-
-        /*
-        if ($('input:radio[name=srv]').prop("checked") == false)
-        {
-            points += 20;
-        }
-        */
 
         $('span.score').text(points);
     }
@@ -82,10 +79,6 @@ $(document).ready(function() {
         $.fn.Compute();
         $.fn.Glorify();
     }
-
-
-
-
 
 
 
