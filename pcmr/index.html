@@ -1,0 +1,453 @@
+<!--
+The MIT License (MIT)
+
+Copyright (c) 2015 Alessandro De Micheli
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>PCMR Rating System calculator</title>
+  <meta name="description" content="this site may come in handy to compute PCMRatings">
+  <meta name="author" content="/u/eur0pa">
+  <meta name="generator" content="skeleton css">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="favicon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+
+    <!-- Header
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="row">
+      <div class="five columns" style="margin-top: 15%">
+        <h1>PCMRatings</h1>
+        <h4>Select all that apply</h4>
+      </div>
+      <div class="five columns" style="margin-top: 15%">
+        <h5>Current score: <span class="score">0</span></h5>
+        <h5>Current rating: <span class="rating">?</span></h5>
+      </div>
+      <div class="two columns" style="margin-top: 15%">
+        <img src="images/ratings/NaN.jpg" alt="" class="u-max-full-width rating" />
+      </div>
+    </div>
+
+    <!-- Score table
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="row">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="score category">Frame rate</td>
+            <td class="score description">
+              <label for="fps:7.0">
+                <input name="fps" type="radio" id="fps:7.0">
+                <span class="label-body">May be capped at 30fps</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="fps:7.1">
+                <input name="fps" type="radio" id="fps:7.1">
+                <span class="label-body">May be capped at 60fps</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="fps:7.2">
+                <input name="fps" type="radio" id="fps:7.2">
+                <span class="label-body">Capped at 60fps</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="fps:7.3">
+                <input name="fps" type="radio" id="fps:7.3">
+                <span class="label-body">Capped at 60fps, potentially limitless</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="fps:7.4">
+                <input name="fps" type="radio" id="fps:7.4">
+                <span class="label-body">Limitless</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">Resolution</td>
+            <td class="score description">
+              <label for="res:7.0">
+                <input name="res" type="radio" id="res:7.0">
+                <span class="label-body">Does not support 1080p or higher</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="res:7.1">
+                <input name="res" type="radio" id="res:7.1">
+                <span class="label-body">May support up to 1080p</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="res:7.2">
+                <input name="res" type="radio" id="res:7.2">
+                <span class="label-body">Supports 1080p. No multi-monitor support</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="res:7.3">
+                <input name="res" type="radio" id="res:7.3">
+                <span class="label-body">Supports 1080p, may include multi-monitor support</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="res:7.4">
+                <input name="res" type="radio" id="res:7.4">
+                <span class="label-body">4K or beyond, may include multi-monitor support</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">Optimized</td>
+            <td class="score description">
+              <label for="opt:8.0">
+                <input name="opt" type="radio" id="opt:8.0">
+                <span class="label-body">Poorly</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="opt:8.1">
+                <input name="opt" type="radio" id="opt:8.1">
+                <span class="label-body">Passable</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="opt:8.2">
+                <input name="opt" type="radio" id="opt:8.2">
+                <span class="label-body">Good</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="opt:8.3">
+                <input name="opt" type="radio" id="opt:8.3">
+                <span class="label-body">Great</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="opt:8.4">
+                <input name="opt" type="radio" id="opt:8.4">
+                <span class="label-body">Glorious!</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">Mod support</td>
+            <td class="score description">
+              <label for="mod:3.0">
+                <input name="mod" type="radio" id="mod:3.0">
+                <span class="label-body">No support, mods may result in online bans</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="mod:3.1">
+                <input name="mod" type="radio" id="mod:3.1">
+                <span class="label-body">Possible unofficial support, may be heavily restricted</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="mod:3.2">
+                <input name="mod" type="radio" id="mod:3.2">
+                <span class="label-body">May not have official support, possibly restricted to cosmetic changes</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="mod:3.3">
+                <input name="mod" type="radio" id="mod:3.3">
+                <span class="label-body">Some support, possibly restricted to cosmetic changes</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="mod:3.4">
+                <input name="mod" type="radio" id="mod:3.4">
+                <span class="label-body">Complete support</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">Servers</td>
+            <td class="score description">
+              <label for="srv:5.0">
+                <input name="srv" type="radio" id="srv:5.0">
+                <span class="label-body">Possibly weak, unreliable servers</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="srv:5.1">
+                <input name="srv" type="radio" id="srv:5.1">
+                <span class="label-body">Possibly weak servers, but occasionally reliable</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="srv:5.2">
+                <input name="srv" type="radio" id="srv:5.2">
+                <span class="label-body">Possibly some server issues at high volume, but no options available</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="srv:5.3">
+                <input name="srv" type="radio" id="srv:5.3">
+                <span class="label-body">Acceptable servers with dedicated or custom servers optional</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="srv:5.4">
+                <input name="srv" type="radio" id="srv:5.4">
+                <span class="label-body">Strong servers with dedicated or custom servers optional</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">DLC</td>
+            <td class="score description">
+              <label for="dlc:4.0">
+                <input name="dlc" type="radio" id="dlc:4.0">
+                <span class="label-body">Possible &ldquo;Day 1 DLC&rdquo;, affects entire game balance</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="dlc:4.1">
+                <input name="dlc" type="radio" id="dlc:4.1">
+                <span class="label-body">Possible &ldquo;Day 1 DLC&rdquo;, affects game balance online</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="dlc:4.2">
+                <input name="dlc" type="radio" id="dlc:4.2">
+                <span class="label-body">Possible &ldquo;Day 1 DLC&rdquo;, does not affect game balance online</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="dlc:4.3">
+                <input name="dlc" type="radio" id="dlc:4.3">
+                <span class="label-body">No &ldquo;Day 1 DLC&rdquo;, or DLC is purely cosmetic</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="dlc:4.4">
+                <input name="dlc" type="radio" id="dlc:4.4">
+                <span class="label-body">No &ldquo;Day 1 DLC&rdquo;, or DLC is free</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">Glitches</td>
+            <td class="score description">
+              <label for="gli:6.0">
+                <input name="gli" type="radio" id="gli:6.0">
+                <span class="label-body">Possible excess of glitches, likely game-breaking</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="gli:6.1">
+                <input name="gli" type="radio" id="gli:6.1">
+                <span class="label-body">Possible excess of glitches, but not game-breaking</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="gli:6.2">
+                <input name="gli" type="radio" id="gli:6.2">
+                <span class="label-body">Some glitches, but usually not game-breaking</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="gli:6.3">
+                <input name="gli" type="radio" id="gli:6.3">
+                <span class="label-body">Few glitches, but rarely do they affect enjoyment</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="gli:6.4">
+                <input name="gli" type="radio" id="gli:6.4">
+                <span class="label-body">Nearly none, or to a limited and rare amount</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">Settings</td>
+            <td class="score description">
+              <label for="set:4.0">
+                <input name="set" type="radio" id="set:4.0">
+                <span class="label-body">None, or very limited settings</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="set:4.1">
+                <input name="set" type="radio" id="set:4.1">
+                <span class="label-body">Limited settings</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="set:4.2">
+                <input name="set" type="radio" id="set:4.2">
+                <span class="label-body">Limited settings, short range on video settings</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="set:4.3">
+                <input name="set" type="radio" id="set:4.3">
+                <span class="label-body">Acceptable settings, medium range on video settings</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="set:4.4">
+                <input name="set" type="radio" id="set:4.4">
+                <span class="label-body">Full settings, wide range on video settings</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">Controls</td>
+            <td class="score description">
+              <label for="ctl:3.0">
+                <input name="ctl" type="radio" id="ctl:3.0">
+                <span class="label-body">Un-configurable controls, no gamepad support</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="ctl:3.1">
+                <input name="ctl" type="radio" id="ctl:3.1">
+                <span class="label-body">Sensitivity options, no control mapping, no gamepad support</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="ctl:3.2">
+                <input name="ctl" type="radio" id="ctl:3.2">
+                <span class="label-body">Keyboard remap-able, gamepad support, sensitivity options</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="ctl:3.3">
+                <input name="ctl" type="radio" id="ctl:3.3">
+                <span class="label-body">All devices remap-able, gamepad support, sensitivity options</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="ctl:3.4">
+                <input name="ctl" type="radio" id="ctl:3.4">
+                <span class="label-body">All devices remap-able, alternate controls, gamepad support, sensitivity options, automatic input detectoin</span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td class="score category">DRM</td>
+            <td class="score description">
+              <label for="drm:3.0">
+                <input name="drm" type="radio" id="drm:3.0">
+                <span class="label-body">Limited installs, constant online connection required
+                  <sup class="hoverbox parent">1
+                    <span class="hoverbox child">does not apply to online multiplayer games for obvious reasons</span>
+                  </sup>
+                </span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="drm:3.1">
+                <input name="drm" type="radio" id="drm:3.1">
+                <span class="label-body">Limited installs, online check-ins</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="drm:3.2">
+                <input name="drm" type="radio" id="drm:3.2">
+                <span class="label-body">Online check-ins</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="drm:3.3">
+                <input name="drm" type="radio" id="drm:3.3">
+                <span class="label-body">Unlimited installs, available offline</span>
+              </label>
+            </td>
+            <td class="score description">
+              <label for="drm:3.4">
+                <input name="drm" type="radio" id="drm:3.4">
+                <span class="label-body">No DRM</span>
+              </label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer
+    ________________________________________________ -->
+    <div class="row">
+      <div class="u-full-width" style="margin-top: 15%">
+        <footer>
+          <p>
+            Based on <a href="http://www.reddit.com/r/pcmasterrace">/r/PCMR</a> user ratings.
+            Credits go to <a href="http://www.reddit.com/user/BallisticGE0RGE">/u/BallisticGE0RGE</a> for the images.
+            Latest thread <a href="http://redd.it/3b8gav">here</a>.
+          </p>
+        </footer>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
