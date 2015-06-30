@@ -1,5 +1,6 @@
 body {
     background: #fffffa;
+    font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 input[type=radio] {
@@ -15,20 +16,21 @@ span.rating {
 img.rating {
   max-height: 130px;
 }
-.no-margin {
+.no-bot-margin {
   margin-bottom:0;
+}
+.no-top-margin {
+  margin-top: 0;
 }
 .score {
     vertical-align: top;
 }
+.score.description {
+    font-weight: 300;
+}
 .score.category {
     font-weight: bold;
 }
-
-.score.description {
-    font-size: 0.8em;
-}
-
 .score.description:hover,
 .score.description.checked {
     transition: 250ms;

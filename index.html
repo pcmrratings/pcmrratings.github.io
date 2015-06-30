@@ -32,31 +32,34 @@ THE SOFTWARE.
   <meta name="author" content="/u/fszeker">
   <meta name="generator" content="skeleton css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/skeleton.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
-
+  <style>
+  label {
+    font-weight: inherit;
+  }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="row" style="margin-top:50px;">
-      <div class="five columns">
-        <h1>Rating Calculator</h1>
-        <h4 class="no-margin">/r/OfficialPCMRRatings</h4>
-        <p class="no-margin"><a href="http://redd.it/3b6eic">Rating guide</a> | <a href="http://github.com/pcmrratings/pcmrratings.github.io">Find us on GitHub</a></p>
+      <div class="col-md-5">
+        <h1 class="no-top-margin">Rating Calculator</h1>
+        <h4 class="no-bot-margin">/r/OfficialPCMRRatings</h4>
+        <p class="no-bot-margin"><a href="http://redd.it/3b6eic">Rating guide</a> | <a href="http://github.com/pcmrratings/pcmrratings.github.io">Find us on GitHub</a></p>
       </div>
-      <div class="five columns">
-        <h5>Score: <span class="score">0</span> / 200</h5>
-        <h5>Rating: <span class="rating">?</span></h5>
+      <div class="col-md-5">
+        <h3>Score: <span class="score">0</span> / 200</h3>
+        <h3>Rating: <span class="rating">?</span></h3>
       </div>
-      <div class="two columns">
-        <img src="images/ratings/NaN.jpg" alt="" class="u-max-full-width rating" />
+      <div class="col-md-2">
+        <img src="images/ratings/NaN.jpg" alt="" class="full-width rating" />
       </div>
     </div>
     <div class="row">
-      <table class="u-full-width">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th></th>
