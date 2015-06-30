@@ -54,8 +54,16 @@ $(document).ready(function() {
             var score = parseInt(id.substring(6));
             points += (weight * score);
             opacity += 0.1;
+            percents = (opacity * 100)+"%";
             $('img.rating')
                 .css({'opacity': opacity});
+            $('.progress-bar')
+                .css({'width': percents})
+            if(percents == "99.99999999999999%") {
+              $('.progress-bar')
+                  .toggleClass("progress-bar-warning")
+                  .toggleClass("progress-bar-success")
+            }
         });
 
         $('span.score').text(points);
@@ -93,8 +101,8 @@ $(document).ready(function() {
 
     $('img.rating').click(function(e) {
         $(this)
-            .toggleClass("twelve columns")
-            .toggleClass("two columns")
+            .toggleClass("col-md-12")
+            .toggleClass("col-md-2")
             .toggleClass("absolute")
             .toggleClass("u-max-full-width");
     });
