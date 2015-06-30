@@ -5,11 +5,22 @@ body {
 input[type=radio] {
     display: none;
 }
-
+span.score {
+  font-weight: bold;
+}
+span.rating {
+  border: 3px solid;
+  padding: 1px 3px;
+}
+img.rating {
+  max-height: 130px;
+}
+.no-margin {
+  margin-bottom:0;
+}
 .score {
     vertical-align: top;
 }
-
 .score.category {
     font-weight: bold;
 }
@@ -23,7 +34,6 @@ input[type=radio] {
     transition: 250ms;
     background: #b3e7f7;
 }
-
 .absolute {
     position: fixed;
     top: 50%;
@@ -47,7 +57,3 @@ input[type=radio] {
     width: 200px;
     background: #fff;
 }
-
-
-
-
