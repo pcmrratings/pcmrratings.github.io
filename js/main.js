@@ -107,4 +107,27 @@ $(document).ready(function() {
             .toggleClass("u-max-full-width");
     });
 
+    function getUrlParameter(sParam)
+    {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++)
+        {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam)
+            {
+                return sParameterName[1];
+            }
+        }
+    }
+    var urlScores = getUrlParameter("a"),
+    scores = urlScores.split(""),
+    categories = ["fps:7", "res:7", "opt:8", "mod:3", "srv:5", "dlc:4", "gli:6", "set:4", "ctl:3", "drm:3"];
+
+    $.each(categories, function(index, item) {
+      var theRadio = $("#"+item+"."+scores[index]);
+      theRadio.prop("checked", true);
+      $.fn.CheckScore(theRadio);
+    });
+
 });
